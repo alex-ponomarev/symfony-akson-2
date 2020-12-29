@@ -191,7 +191,7 @@ class CategoryController extends AbstractController
            $this->validator->idValidation($id);
            $result = $this->repository->delete($id);
            $this->client->request(
-                'DELETE',
+                'PATCH',
                $_ENV['URL_SERVICE_PRODUCT'].'/api/product/category/delete/'.$id,[
                     'headers' => [
                         "Authorization" =>"Bearer ".$this->token
