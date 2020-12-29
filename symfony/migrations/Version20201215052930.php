@@ -24,7 +24,6 @@ final class Version20201215052930 extends AbstractMigration
         $this->addSql('CREATE SEQUENCE product_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE "user_id_seq" INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE category (id INT NOT NULL, name VARCHAR(255) NOT NULL, category INT DEFAULT NULL, product_count INT NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE product (id INT NOT NULL, name VARCHAR(255) NOT NULL, sku VARCHAR(255) DEFAULT NULL, price INT DEFAULT NULL, description VARCHAR(255) DEFAULT NULL, category INT DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE "user" (id INT NOT NULL, username VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649F85E0677 ON "user" (username)');
     }
@@ -34,10 +33,8 @@ final class Version20201215052930 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
         $this->addSql('DROP SEQUENCE category_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE product_id_seq CASCADE');
         $this->addSql('DROP SEQUENCE "user_id_seq" CASCADE');
         $this->addSql('DROP TABLE category');
-        $this->addSql('DROP TABLE product');
         $this->addSql('DROP TABLE "user"');
     }
 }
