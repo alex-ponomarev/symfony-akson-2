@@ -73,7 +73,7 @@ class ProductController extends AbstractController
         $username = $request->get('username');
         $response = $this->client->request(
             'POST',
-            $_ENV['URL_SERVICE_PRODUCT'].'/api/login_check',[
+            $_ENV['URL_SERVICE_PRODUCT'].'/api/product/login_check',[
                 'json' =>['username'=>$username,'password'=>$password],
                 'headers' => [
                     'Content-Type' => 'application/json',]
@@ -235,10 +235,10 @@ class ProductController extends AbstractController
         //уведомить категорию
     }
     /**
-     * @Route("/api/product/category/delete/{id}",name="remountToSingularity",methods={"DELETE"})
+     * @Route("/api/product/category/delete/{id}",name="remountToSingularity",methods={"PATCH"})
      * @param Request $request
      * @return Response
-     * @OA\Delete(
+     * @OA\Patch(
      *     summary="Перебазирует продукты удалённой категории в служебную категорию 'Сингулярность'",
      *     tags={"Advanced"})
      */

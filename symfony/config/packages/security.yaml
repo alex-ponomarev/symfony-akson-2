@@ -15,11 +15,11 @@ security:
       pattern: ^/api/doc
       security: false
     login:
-      pattern: ^/api/category/login
+      pattern: ^/api/product/login
       stateless: true
       anonymous: true
       json_login:
-        check_path: /api/category/login_check
+        check_path: /api/product/login_check
         success_handler: lexik_jwt_authentication.handler.authentication_success
         failure_handler: lexik_jwt_authentication.handler.authentication_failure
     api:
@@ -33,5 +33,5 @@ security:
       anonymous: true
 
   access_control:
-    - { path: ^/api/category/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/api/product/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
